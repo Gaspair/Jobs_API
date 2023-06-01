@@ -77,6 +77,28 @@ paths:
       deprecated: false
       security:
         - bearer: []
+
+  /jobs/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+        description: the job id
+    get:
+      tags:
+        - Jobs
+      summary: Get single job
+      operationId: Getsinglejob
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
     post:
       tags:
         - Jobs
@@ -104,27 +126,6 @@ paths:
       deprecated: false
       security:
         - bearer: []
-  /jobs/{id}:
-    parameters:
-      - in: path
-        name: id
-        schema:
-          type: string
-        required: true
-        description: the job id
-    get:
-      tags:
-        - Jobs
-      summary: Get single job
-      operationId: Getsinglejob
-      parameters: []
-      responses:
-        "200":
-          description: ""
-          headers: {}
-      deprecated: false
-      security:
-        - bearer: []
     patch:
       tags:
         - Jobs
@@ -141,9 +142,11 @@ paths:
                 - example:
                     company: random
                     position: JAVA dev
+                    status: pending
             example:
               company: random
               position: JAVA dev
+              status: company
         required: true
       responses:
         "200":
@@ -227,16 +230,7 @@ components:
       example:
         company: random
         position: JAVA dev
-    DeleteJobRequest:
-      title: DeleteJobRequest
-      required:
-        - jobId
-      type: object
-      properties:
-        jobId:
-          type: string
-      example:
-        jobId: 64764269bc6e684bf8667c98
+
   securitySchemes:
     bearer:
       type: http
