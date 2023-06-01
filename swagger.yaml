@@ -147,7 +147,7 @@ paths:
             example:
               company: random
               position: JAVA dev
-              status: company
+              status: pending
         required: true
       responses:
         "200":
