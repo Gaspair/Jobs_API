@@ -64,6 +64,33 @@ paths:
       deprecated: false
       security: []
   /jobs:
+    post:
+      tags:
+        - Jobs
+      summary: Create Job
+      operationId: CreateJob
+      parameters: []
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: "#/components/schemas/CreateJobRequest"
+                - example:
+                    position: Frontend Dev
+                    company: Chess codders
+            example:
+              position: Frontend Dev
+              company: Chess codders
+        required: true
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
     get:
       tags:
         - Jobs
@@ -99,33 +126,7 @@ paths:
       deprecated: false
       security:
         - bearer: []
-    post:
-      tags:
-        - Jobs
-      summary: Create Job
-      operationId: CreateJob
-      parameters: []
-      requestBody:
-        description: ""
-        content:
-          application/json:
-            schema:
-              allOf:
-                - $ref: "#/components/schemas/CreateJobRequest"
-                - example:
-                    position: Frontend Dev
-                    company: Chess codders
-            example:
-              position: Frontend Dev
-              company: Chess codders
-        required: true
-      responses:
-        "200":
-          description: ""
-          headers: {}
-      deprecated: false
-      security:
-        - bearer: []
+
     patch:
       tags:
         - Jobs
